@@ -25,10 +25,20 @@
 					"response": []
 				},
 				{
-					"name": "02-Test route users",
+					"name": "02-test route users",
 					"request": {
-						"method": "GET",
-						"header": [],
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Brad Traversy\",\r\n    \"email\":\"brad@gmail.com\",\r\n    \"password\":\"123456\"\r\n}"
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/users",
 							"protocol": "http",
@@ -45,7 +55,7 @@
 					"response": []
 				},
 				{
-					"name": "03-Test route posts",
+					"name": "03-test route posts",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -65,7 +75,7 @@
 					"response": []
 				},
 				{
-					"name": "04-Test route auth",
+					"name": "04-test route auth",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -85,7 +95,7 @@
 					"response": []
 				},
 				{
-					"name": "05-Test route profile",
+					"name": "05-test route profile",
 					"request": {
 						"method": "GET",
 						"header": [],
@@ -103,6 +113,36 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "06-users validation",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"\",\r\n    \"email\":\"\",\r\n    \"password\":\"\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -116,7 +156,38 @@
 		},
 		{
 			"name": "User & Auth",
-			"item": []
+			"item": [
+				{
+					"name": "01-register user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"name\":\"Brad Traversy\",\r\n    \"email\":\"brad@gmail.com\",\r\n    \"password\":\"123456\"\r\n}"
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/users",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"users"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
