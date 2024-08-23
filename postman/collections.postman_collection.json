@@ -155,7 +155,7 @@
 			"item": []
 		},
 		{
-			"name": "User & Auth",
+			"name": "01-User & Auth",
 			"item": [
 				{
 					"name": "01-register user",
@@ -182,6 +182,38 @@
 							"path": [
 								"api",
 								"users"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-get user with his token",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGFhMDE2NzRlZmI3ODdjYjI3ZWZlIn0sImlhdCI6MTcyNDQyNjc1MywiZXhwIjoxNzI0Nzg2NzUzfQ.bkB3Pb7uTIAMpJrU-y5Xlwi6ibzs4f5kmcz9FKPkgkw",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth"
 							]
 						}
 					},
