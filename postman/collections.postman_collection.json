@@ -200,10 +200,46 @@
 							},
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGFhMDE2NzRlZmI3ODdjYjI3ZWZlIn0sImlhdCI6MTcyNDQyNjc1MywiZXhwIjoxNzI0Nzg2NzUzfQ.bkB3Pb7uTIAMpJrU-y5Xlwi6ibzs4f5kmcz9FKPkgkw",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGI3ZTkyNzRiYThlMjkwODZlOTQ3In0sImlhdCI6MTcyNDQzMDMxNCwiZXhwIjoxNzI0NzkwMzE0fQ.3baTLVF6RfWr17HIseEsBiD7fMKHxiTFRACM3f9juXc",
 								"type": "text"
 							}
 						],
+						"url": {
+							"raw": "http://localhost:5000/api/auth",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"auth"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "02-get user with his token Copy",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"brad@gmail.com\",\r\n    \"password\":\"123456\"\r\n}"
+						},
 						"url": {
 							"raw": "http://localhost:5000/api/auth",
 							"protocol": "http",
