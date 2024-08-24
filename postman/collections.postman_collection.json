@@ -152,7 +152,35 @@
 		},
 		{
 			"name": "Profiles",
-			"item": []
+			"item": [
+				{
+					"name": "01-get profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGI3ZTkyNzRiYThlMjkwODZlOTQ3In0sImlhdCI6MTcyNDQzMDMxNCwiZXhwIjoxNzI0NzkwMzE0fQ.3baTLVF6RfWr17HIseEsBiD7fMKHxiTFRACM3f9juXc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/profile/me",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile",
+								"me"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		},
 		{
 			"name": "01-User & Auth",
