@@ -179,6 +179,46 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "02-post profile",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOWE4MjdkYzEzZThmZjQ5NDU3YmJiIn0sImlhdCI6MTcyNDQ5MTgxNSwiZXhwIjoxNzI0ODUxODE1fQ.ny4L0djKWGRwX_TdKXz4GiDpolu5hrDxAES_3MaDSAc",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"company\":\"Traversy MEdia\",\r\n    \"status\":\"Developer\",\r\n    \"website\":\"https://www.traversymedia.com\",\r\n    \"skills\":\"HTML, CSS, JS, PHP, Ruby\",\r\n    \"location\":\"Boston, MA\",\r\n    \"bio\":\"I am developper and instructor for Traversy Media\",\r\n    \"githubusername\":\"Bradtraversy\",\r\n    \"twitter\":\"https://twitter.com/traversymedia\",\r\n    \"facebook\":\"https://facebook.com/traversymedia\",\r\n    \"youtube\":\"https://youtube.com/traversymedia\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
@@ -228,7 +268,7 @@
 							},
 							{
 								"key": "x-auth-token",
-								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGI3ZTkyNzRiYThlMjkwODZlOTQ3In0sImlhdCI6MTcyNDQzMDMxNCwiZXhwIjoxNzI0NzkwMzE0fQ.3baTLVF6RfWr17HIseEsBiD7fMKHxiTFRACM3f9juXc",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOWE4MjdkYzEzZThmZjQ5NDU3YmJiIn0sImlhdCI6MTcyNDQ5MTgxNSwiZXhwIjoxNzI0ODUxODE1fQ.ny4L0djKWGRwX_TdKXz4GiDpolu5hrDxAES_3MaDSAc",
 								"type": "text"
 							}
 						],
