@@ -355,6 +355,38 @@
 						}
 					},
 					"response": []
+				},
+				{
+					"name": "07-Delete profile & user",
+					"request": {
+						"method": "DELETE",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjYzc3YWNhODUzY2EwOWQ4MTJjZDg2In0sImlhdCI6MTcyNDY3NjAxMiwiZXhwIjoxNzI1MDM2MDEyfQ.FpAPWQ7_o941448TsmhoN-mh_u7IQo8Dib8Y8BCoP_c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
 				}
 			]
 		},
