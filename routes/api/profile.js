@@ -38,14 +38,11 @@ router.post(
     ],
   ],
   async (req, res) => {
-    console.log('1');
     const errors = validationResult(req);
-    console.log('2');
 
     if (!errors.isEmpty) {
       return res.status(400).json({ errors: errors.array() });
     }
-    console.log('3');
 
     const {
       company,
@@ -62,39 +59,30 @@ router.post(
       linkedin,
     } = req.body;
 
-    console.log('4');
     // Build profile object
     const profileFields = {};
     profileFields.user = req.user.id;
-    console.log('5');
     if (company) {
       profileFields.company = company;
     }
-    console.log('6');
     if (website) {
       profileFields.website = website;
     }
-    console.log('7');
     if (location) {
       profileFields.location = location;
     }
-    console.log('8');
     if (bio) {
       profileFields.bio = bio;
     }
-    console.log('9');
     if (status) {
       profileFields.status = status;
     }
-    console.log('10');
     if (githubusername) {
       profileFields.githubusername = githubusername;
     }
-    console.log('11');
     if (skills) {
       profileFields.skills = skills.split(',').map((skill) => skill.trim());
     }
-    console.log('12');
 
     // Build social object
     profileFields.social = {};
@@ -103,23 +91,17 @@ router.post(
     if (facebook) profileFields.social.facebook = facebook;
     if (linkedin) profileFields.social.likedin = linkedin;
     if (instagram) profileFields.social.instagram = instagram;
-    console.log('13');
-    console.log(req.user.id);
     try {
       let profile = await Profile.findOne({ user: req.user.id });
 
-      console.log('14');
-      console.log(profile);
       if (profile) {
         // Update
-        console.log('15');
         profile = await Profile.findOneAndUpdate(
           { user: req.user.id },
           { $set: profileFields },
           { new: true }
         );
 
-        console.log('16');
         return res.json(profile);
       }
 
@@ -132,10 +114,43 @@ router.post(
       console.error(err.message);
       res.status(500).send('Server Error');
     }
-
-    // console.log(profileFields);
-    // res.send('Hello');
   }
 );
+
+// @router GET api/profile
+// @desc Get all profiles
+// @access Public
+router.get('/', async (req, res) => {
+  try {
+    const profiles = await Profile.find().populate('user', ['name', 'avatar']);
+    res.json(profiles);
+  } catch (err) {
+    console.error(err.message);
+    res.status(500).send('Server Error');
+  }
+});
+
+// @router GET api/profile/user/:user_id
+// @desc Get profile by user ID
+// @access Public
+router.get('/user/:user_id', async (req, res) => {
+  try {
+    const profile = await Profile.findOne({
+      user: req.params.user_id,
+    }).populate('user', ['name', 'avatar']);
+
+    if (!profile) {
+      return res.status(400).json({ msg: 'Profile not found' });
+    }
+
+    res.json(profile);
+  } catch (err) {
+    console.error(err.message);
+    if (err.kind == 'ObjectId') {
+      return res.status(400).json({ msg: 'Profile not found' });
+    }
+    res.status(500).send('Server Error');
+  }
+});
 
 module.exports = router;

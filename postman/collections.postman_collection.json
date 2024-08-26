@@ -151,7 +151,7 @@
 			"item": []
 		},
 		{
-			"name": "Profiles",
+			"name": "02-Profiles",
 			"item": [
 				{
 					"name": "01-get profile",
@@ -215,6 +215,142 @@
 							"path": [
 								"api",
 								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "03-Get logged in users profile",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOWE4MjdkYzEzZThmZjQ5NDU3YmJiIn0sImlhdCI6MTcyNDY2MjY2MCwiZXhwIjoxNzI1MDIyNjYwfQ.JcXT8KIcrfg3HqkjPNSgsqN9nXwBA4InHlrLlKcIhxE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"company\":\"TechSoft INC\",\r\n    \"status\":\"Junior Developer\",\r\n    \"website\":\"https://www.techsoft.com\",\r\n    \"skills\":\"HTML, CSS, JS\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "04-get profile",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOGI3ZTkyNzRiYThlMjkwODZlOTQ3In0sImlhdCI6MTcyNDQzMDMxNCwiZXhwIjoxNzI0NzkwMzE0fQ.3baTLVF6RfWr17HIseEsBiD7fMKHxiTFRACM3f9juXc",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "05-Get all profiles",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text",
+								"disabled": true
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOWE4MjdkYzEzZThmZjQ5NDU3YmJiIn0sImlhdCI6MTcyNDY2MjY2MCwiZXhwIjoxNzI1MDIyNjYwfQ.JcXT8KIcrfg3HqkjPNSgsqN9nXwBA4InHlrLlKcIhxE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/profile",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "06-Get profiles by user_id",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							},
+							{
+								"key": "x-auth-token",
+								"value": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyIjp7ImlkIjoiNjZjOWE4MjdkYzEzZThmZjQ5NDU3YmJiIn0sImlhdCI6MTcyNDY2MjY2MCwiZXhwIjoxNzI1MDIyNjYwfQ.JcXT8KIcrfg3HqkjPNSgsqN9nXwBA4InHlrLlKcIhxE",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"url": {
+							"raw": "http://localhost:5000/api/profile/user/66c9a827dc13e8ff49457bbb",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"api",
+								"profile",
+								"user",
+								"66c9a827dc13e8ff49457bbb"
 							]
 						}
 					},
