@@ -1,4 +1,6 @@
 {
   "mongoURI": "mongodb+srv://texmex430:uUxzINHIBLOySbNJ@cluster0.xzwhf.mongodb.net/test?retryWrites=true&w=majority&appName=Cluster0",
-  "jwtSecret": "mysecrettoken"
+  "jwtSecret": "mysecrettoken",
+  "githubClientId": "Ov23liq7kn63n44Dydl4",
+  "githubSecret": "ae9f97633f2e6dc5d6ee068bb840c69656acbab0"
 }
