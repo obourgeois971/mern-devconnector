@@ -117,9 +117,9 @@ router.post(
   }
 );
 
-// @router GET api/profile
-// @desc Get all profiles
-// @access Public
+// @router  GET api/profile
+// @desc    Get all profiles
+// @access  Public
 router.get('/', async (req, res) => {
   try {
     const profiles = await Profile.find().populate('user', ['name', 'avatar']);
@@ -130,9 +130,9 @@ router.get('/', async (req, res) => {
   }
 });
 
-// @router GET api/profile/user/:user_id
-// @desc Get profile by user ID
-// @access Public
+// @router  GET api/profile/user/:user_id
+// @desc    Get profile by user ID
+// @access  Public
 router.get('/user/:user_id', async (req, res) => {
   try {
     const profile = await Profile.findOne({
@@ -153,9 +153,9 @@ router.get('/user/:user_id', async (req, res) => {
   }
 });
 
-// @router DELETE api/profile
-// @desc Delete profile, user & posts
-// @access Private
+// @router  DELETE api/profile
+// @desc    Delete profile, user & posts
+// @access  Private
 router.delete('/', auth, async (req, res) => {
   try {
     // @todo - remove users posts
@@ -172,5 +172,37 @@ router.delete('/', auth, async (req, res) => {
     res.status(500).send('Server Error');
   }
 });
+
+// @router  PUT api/profile/experience
+// @desc    Add profile experience
+// @access  Private
+router.put(
+  '/experience',
+  auth,
+  check('title', 'Title is required').notEmpty(),
+  check('company', 'Company is required').notEmpty(),
+  check('from', 'From date is required and needs to be from the past')
+    .notEmpty()
+    .custom((value, { req }) => (req.body.to ? value < req.body.to : true)),
+  async (req, res) => {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      return res.status(400).json({ errors: errors.array() });
+    }
+
+    try {
+      const profile = await Profile.findOne({ user: req.user.id });
+
+      profile.experience.unshift(req.body);
+
+      await profile.save();
+
+      res.json(profile);
+    } catch (err) {
+      console.error(err.message);
+      res.status(500).send('Server Error');
+    }
+  }
+);
 
 module.exports = router;
